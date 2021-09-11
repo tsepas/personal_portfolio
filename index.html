@@ -16,11 +16,37 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <!-- Core theme CSS (includes Bootstrap)-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>
+
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
+
+
+  <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Before entering to this site</h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+  				    <p>Please <i class="fas fa-hands-wash"></i> for <i class="fas fa-stopwatch-20"></i> seconds.</p>
+
+              </div>
+          </div>
+      </div>
+  </div>
+
   <!-- Navigation-->
+
   <nav class="navbar navbar-expand-lg fixed-top bg-secondary" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="#page-top">Thanasis Tsepas</a>
@@ -178,6 +204,39 @@
       <!-- About Section Button-->
     </div>
   </section>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-2">Here is my favorite music<br></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+      <!-- About Section Heading-->
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-icon"><i class="fas fa-compact-disc"></i><i class="fab fa-spotify"></i></div>
+      </div>
+      <!-- About Section Content-->
+      <!-- About Section Button-->
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <iframe src="https://open.spotify.com/embed/playlist/4PKDTgE70LGYBIvBZGmsh9" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+        <div class="col-md-6"><iframe src="https://open.spotify.com/embed/playlist/0nX9VM9Wxpc3q4ZMtfuMSG" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+        <div class="col-md-6"><iframe src="https://open.spotify.com/embed/playlist/72TmsnPvntnguTF0FWQhL9" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+        <div class="col-md-6"><iframe src="https://open.spotify.com/embed/playlist/10jiLWNqlj7goW3HfAdkLF?theme=0" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><iframe src="https://open.spotify.com/embed/playlist/1bHaEAslsHkcBeb26cpbXl" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+      </div>
+    </div>
+  </section>
   <!-- Contact Section-->
   <section class="page-section" id="contact">
     <div class="container">
@@ -192,47 +251,34 @@
       <!-- Contact Section Form-->
       <div class="row justify-content-center">
         <div class="col-lg-8 col-xl-7">
-          <!-- * * * * * * * * * * * * * * *-->
-          <!-- * * SB Forms Contact Form * *-->
-          <!-- * * * * * * * * * * * * * * *-->
-          <!-- This form is pre-integrated with SB Forms.-->
-          <!-- To make this form functional, sign up at-->
-          <!-- https://startbootstrap.com/solution/contact-forms-->
-          <!-- to get an API token!-->
-          <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+          <form id="contactForm" method="post" action="contact.php">
             <!-- Name input-->
             <div class="form-floating mb-3">
-              <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required">
+              <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required">
               <label for="name">Full name</label>
               <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
             </div>
             <!-- Email address input-->
             <div class="form-floating mb-3">
-              <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email">
+              <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email">
               <label for="email">Email address</label>
               <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
               <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
             </div>
             <!-- Phone number input-->
             <div class="form-floating mb-3">
-              <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required">
+              <input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890">
               <label for="phone">Phone number</label>
-              <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
             </div>
             <!-- Message input-->
             <div class="form-floating mb-3">
-              <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+              <textarea class="form-control" name="message" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
               <label for="message">Message</label>
               <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
             </div>
-            <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted-->
             <div class="d-none" id="submitSuccessMessage">
               <div class="text-center mb-3">
                 <div class="fw-bolder">Form submission successful!</div> To activate this form, sign up at <br>
-                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
               </div>
             </div>
             <!-- Submit error message-->
@@ -243,7 +289,7 @@
               <div class="text-center text-danger mb-3">Error sending message!</div>
             </div>
             <!-- Submit Button-->
-            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+            <button class="btn btn-primary btn-xl" id="submitButton" name="send" type="submit">Send</button>
           </form>
         </div>
       </div>
